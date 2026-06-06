@@ -1,0 +1,22 @@
+services:
+
+  drupal:
+    image: drupal:11
+    container_name: drupal_app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./web:/opt/drupal/web
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    container_name: drupal_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal123
+    ports:
+      - "3306:3306"
