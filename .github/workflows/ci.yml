@@ -3,7 +3,7 @@ name: Drupal CI
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
